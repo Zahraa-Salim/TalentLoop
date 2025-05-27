@@ -3,6 +3,7 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:talentloop/screens/messages_screen.dart';
 import '../constants/app_colors.dart';
 import '../helper/navigation_helper.dart';
+import '../screens/notifications_screen.dart';
 import '../services/message_services.dart';
 import '../services/request_services.dart';
 import '../widgets/my_request_card.dart';
@@ -68,35 +69,48 @@ class _ExchangesScreenState extends State<ExchangesScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Stack(
+                      Row(
                         children: [
-                          IconButton(
-                            icon: const Icon(LucideIcons.messageCircle, size: 24),
-                            onPressed: () => NavigationHelper.navigateWithSlideFromRight(context, MessagesScreen()),
+                          Stack(
+                            children: [
+                              IconButton(
+                                icon: const Icon(LucideIcons.bell, size: 24),
+                                onPressed: () => NavigationHelper.navigateWithSlideFromRight(context, NotificationsScreen()),
+                              ),
+                            ],
                           ),
-                          if (_unreadMessageCount > 0)
-                            Positioned(
-                              right: 4,
-                              top: 4,
-                              child: Container(
-                                padding: const EdgeInsets.all(4),
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-                                  shape: BoxShape.circle,
-                                ),
-                                constraints: const BoxConstraints(minWidth: 18, minHeight: 18),
-                                child: Center(
-                                  child: Text(
-                                    _unreadMessageCount.toString(),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 10,
-                                      fontWeight: FontWeight.bold,
+                          const SizedBox(width: 8), // spacing between icons
+                          Stack(
+                            children: [
+                              IconButton(
+                                icon: const Icon(LucideIcons.messageCircle, size: 24),
+                                onPressed: () => NavigationHelper.navigateWithSlideFromRight(context, MessagesScreen()),
+                              ),
+                              if (_unreadMessageCount > 0)
+                                Positioned(
+                                  right: 4,
+                                  top: 4,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(4),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    constraints: const BoxConstraints(minWidth: 18, minHeight: 18),
+                                    child: Center(
+                                      child: Text(
+                                        _unreadMessageCount.toString(),
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ),
+                            ],
+                          ),
                         ],
                       ),
                     ],

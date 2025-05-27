@@ -66,7 +66,7 @@ class _RequestCardState extends State<RequestCard> {
         final UserModel user = snapshot.data![0];
         final Skill skill = snapshot.data![1];
         final Skill interest = snapshot.data![2];
-        final bool hasImage = user.imageUrl != null && user.imageUrl!.isNotEmpty;
+        final bool hasImage = user.imageUrl.isNotEmpty;
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -89,7 +89,7 @@ class _RequestCardState extends State<RequestCard> {
               CircleAvatar(
                 radius: 24,
                 backgroundColor: AppColors.teal,
-                backgroundImage: hasImage ? NetworkImage(user.imageUrl!) : null,
+                backgroundImage: hasImage ? NetworkImage(user.imageUrl) : null,
                 child: hasImage ? null : const Icon(Icons.person, color: Colors.white),
               ),
               const SizedBox(width: 12),

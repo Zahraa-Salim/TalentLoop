@@ -185,7 +185,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(16),
                 child: Image.memory(
-                  snapshot.data! as Uint8List,
+                  snapshot.data!,
                   fit: BoxFit.cover,
                   width: double.infinity,
                 ),

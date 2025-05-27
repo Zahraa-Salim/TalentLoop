@@ -124,7 +124,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
 
     try {
-      final feedbackData = {
+      final _ = {
         'rating': _rating,
         'feedback': _feedbackController.text.trim(),
         'created_at': DateTime.now().toUtc().toIso8601String(),

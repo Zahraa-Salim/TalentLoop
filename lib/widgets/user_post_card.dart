@@ -205,7 +205,7 @@ class _UserPostCardState extends State<UserPostCard> {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
-                  widget.post.skillName ?? 'Skill',
+                  widget.post.skillName,
                   style: const TextStyle(
                     color: AppColors.teal,
                     fontSize: 12,
@@ -221,7 +221,7 @@ class _UserPostCardState extends State<UserPostCard> {
 
   Widget _buildPostImage() {
     final data = widget.post.imageUrl;
-    if (data == null || data.isEmpty) {
+    if (data.isEmpty) {
       return const SizedBox();
     }
 

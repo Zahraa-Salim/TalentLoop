@@ -6,13 +6,10 @@ import 'package:talentloop/constants/app_colors.dart';
 import 'package:talentloop/helper/background_style1.dart';
 import 'package:talentloop/helper/navigation_helper.dart';
 import 'package:talentloop/navigation_screens/main_navigation_screen.dart';
-import 'package:talentloop/start_app_screens/skill_selection_screen.dart';
-
-import '../helper/circle_painter.dart';
 import '../services/profile_setup_service.dart';
 
 class EditProfileScreen extends StatefulWidget {
-  const EditProfileScreen({Key? key}) : super(key: key);
+  const EditProfileScreen({super.key});
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();

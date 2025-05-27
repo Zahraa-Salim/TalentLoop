@@ -80,8 +80,8 @@ class _ExchangeScreenState extends State<ExchangeScreen> {
     if (!mounted) return;
     setState(() {
       _otherUser = other;
-      _yourSkillName = yours?.name ?? '';
-      _theirSkillName = theirs?.name ?? '';
+      _yourSkillName = yours.name;
+      _theirSkillName = theirs.name;
     });
   }
 

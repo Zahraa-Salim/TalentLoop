@@ -50,8 +50,8 @@ class _ChatScreenState extends State<ChatScreen> {
     otherUser = await UserServices.getOtherUser(widget.exchange.otherUserId);
     final skill = await SkillServices.getSkillById(widget.exchange.yourSkillId);
     final interest = await SkillServices.getSkillById(widget.exchange.otherSkillId);
-    skillName = skill.name ?? 'Your Skill';
-    interestName = interest.name ?? 'Their Skill';
+    skillName = skill.name;
+    interestName = interest.name;
     if (mounted) setState(() {});
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../constants/app_colors.dart';
 import '../services/post_services.dart';
 import '../services/skill_services.dart';
@@ -9,7 +8,6 @@ import '../helper/background_style1.dart';
 import '../models/post.dart';
 import '../models/skill.dart';
 import '../models/user_model.dart';
-import '../models/search_result.dart';
 import '../services/api_services.dart';
 
 enum SearchMode { posts, users }
@@ -45,7 +43,6 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future<void> _initData() async {
-    final uid = FirebaseAuth.instance.currentUser!.uid;
     try {
       final interests = await SkillServices.getUserInterests();
       if (!mounted) return;
